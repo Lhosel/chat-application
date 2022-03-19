@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles/join.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Join</title>
+</head>
+
+<body>
+    <div class="join-container">
+        <div class="join-header">
+            <h1 class="join-h1">Join Room</h1>
+        </div>
+        <div class="form-container">
+            <form class="submit-form" action="/chat">
+                <input class="form-field" type="text" name="username" placeholder="username" required
+                    autocomplete="off" />
+                <div class="form-select">
+                    <select name="room" required>
+                        <option value="" disabled selected>select room</option>
+                        <option value="News">News</option>
+                        <option value="COVID-19">COVID-19</option>
+                        <option value="Node JS">Node JS</option>
+                        <option value="PHP">PHP</option>
+                    </select>
+                </div>
+                <button class="form-field" type="submit">Join</button>
+                <button class="form-field" onclick="location.href='/login'">Logout</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles/login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1 class="login-h1">Login</h1>
+        </div>
+        <div class="form-container">
+            <form class="submit-form" action="/login-validate" method="GET">
+                <input class="form-field" type="text" name="username" placeholder="username" required
+                    autocomplete="off" />
+                <input class="form-field" type="password" name="password" placeholder="password" required
+                    autocomplete="off" />
+                <button class="form-field" type="submit">Login</button>
+                <button class="form-field" onclick="location.href='/register'">Register</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

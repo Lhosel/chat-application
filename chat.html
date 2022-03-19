@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles/chat.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Chat</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <h1>Chat App</h1>
+            <a class="leave-btn btn" onclick="clientDisconnect()" href="/join">Leave</a>
+            <a class="logout-btn btn" href="/login">Logout</a>
+        </div>
+        <div class="body">
+            <div class="sidebar"></div>
+            <div class="message-container"></div>
+        </div>
+        <div class="send-container">
+            <div class="typing"></div>
+            <form id="chat-form">
+                <input id="message" type="text" placeholder="Enter Message" required autocomplete="off" />
+                <button class="btn">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.min.js"
+        integrity="sha512-juaCj8zi594KHQqb92foyp87mCSriYjw3BcTHaXsAn4pEB1YWh+z+XQScMxIxzsjfM4BeVFV3Ij113lIjWiC2w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const client = io();
+
+        client.on('message', (message) => {
+            addMessage(message);
+        });
+
+        chatForm = document.getElementById('chat-form');
+
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const message = e.target.elements.message.value;
+
+            // emitting message to server
+            client.emit('addMessage', message);
+
+            e.target.elements.message.value = '';
+            e.target.elements.message.focus();
+        });
+
+        // add message to html
+        function addMessage(message) {
+            const div = document.createElement('div');
+
+            div.classList.add('message');
+            div.innerHTML = `<p class="sender">${message.username} ${message.sentat}</p>
+            <p>${message.text}</p>`;
+
+            document.querySelector('.message-container').appendChild(div);
+        }
+
+        const { username, room } = Qs.parse(location.search, {
+            ignoreQueryPrefix: true
+        });
+
+        const div_room = document.createElement('div');
+
+        div_room.innerHTML = `<h1>${room}</h1>`;
+
+        document.querySelector('.sidebar').append(div_room);
+
+        const div_user = document.createElement('div');
+
+        div_user.innerHTML = `<h2>${username}</h2>`;
+
+        document.querySelector('.sidebar').append(div_user);
+
+        client.emit('joinRoom', { username, room });
+
+        function clientDisconnect() {
+            client.emit('disconnect', { username, room });
+        }
+    </script>
+
+</html>

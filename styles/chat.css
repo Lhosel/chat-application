@@ -1,0 +1,153 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn {
+	cursor: pointer;
+	padding: 5px 15px;
+	border: 0;
+	font-size: 17px;
+}
+
+.container {
+	width: 1200px;
+	margin: 120px auto;
+}
+
+.top-bar {
+    display: flex;
+	padding: 15px;
+	align-items: center;
+    background-color: #000000;
+    color: white;
+}
+
+.top-bar h1 {
+    font-size: 28px;
+    margin-left: 15px;
+}
+
+.body {
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+    border: 1px solid #000000;
+    border-bottom: none;
+    height: 500px;
+}
+
+.sidebar {
+	padding: 20px;
+    margin-left: 30px;
+    margin-top: 20px;
+    border: 1px solid #000000;
+}
+
+.sidebar h1 {
+	font-size: 25px;
+	margin-bottom: 20px;
+}
+
+.sidebar h2 {
+    font-size: 20px;
+	margin-bottom: 15px;
+}
+
+.sidebar ul li {
+	padding: 10px 0;
+}
+
+.message-container {
+	padding: 30px;
+	max-height: 500px;
+	overflow-y: scroll;
+}
+
+.message {
+	padding: 10px;
+	margin-bottom: 15px;
+}
+
+.sender {
+	font-size: 15px;
+	font-weight: bold;
+	color: #96423d;
+	margin-bottom: 7px;
+}
+
+.send-container {
+	padding: 20px 30px;
+    border: 1px solid #000000;
+    border-top: none;
+}
+
+.send-container input {
+	font-size: 15px;
+	padding: 5px;
+	height: 50px;
+    width: 1030px;
+    border: 1px solid #000000;
+}
+
+.send-container input:focus {
+    outline: none !important;
+    border: 2px solid #4a67b8;
+}
+
+.btn {
+    background-color: #4a67b8;
+    border: none;
+    color: #FFFFFF;
+    padding: 15px;
+    width: 100px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #4b57a8;
+    transition: 0.2s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+.btn:after {
+    background-color: #4a67b8;
+    border: none;
+    color: #FFFFFF;
+    padding: 15px;
+    width: 100px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul {
+	list-style: none;
+}
+
+.leave-btn {
+    margin-left: 790px;
+}
+
+.logout-btn {
+    margin-left: 15px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.typing {
+    margin-left: 250px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
